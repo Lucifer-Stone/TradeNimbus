@@ -86,17 +86,17 @@ Open three separate terminals:
      
 🕸️ **Redis, Celery & Channels Setup**
 
-Redis acts as a broker (Celery) and channel layer (Channels).
-Celery fetches real-time stock info via yfinance.
-Django Channels + ASGI push updates over WebSockets to clients.
+- Redis acts as a broker (Celery) and channel layer (Channels).
+- Celery fetches real-time stock info via yfinance.
+- Django Channels + ASGI push updates over WebSockets to clients.
 
 📝 **Assumptions Made**
 
-Stock tickers are restricted to NIFTY50, validated via yfinance.
-No user authentication—session-managed by query string.
-WebSocket routing expects a room_name (like track) for grouping requests.
-All data is stored in-memory; no persistent database storage for stock prices.
-Styling uses Bootstrap 5, focusing on responsiveness over design polish.
+- Stock tickers are restricted to NIFTY50, validated via yfinance.
+- No user authentication—session-managed by query string.
+- WebSocket routing expects a room_name (like track) for grouping requests.
+- All data is stored in-memory; no persistent database storage for stock prices.
+- Styling uses Bootstrap 5, focusing on responsiveness over design polish.
 
 ⚠️ **Notes & Troubleshooting**
 
@@ -109,9 +109,9 @@ pip install --upgrade websockets
 
 🔄 **How It Works (Architecture)**
 
-User selects stocks via a Django form.
-Form submits AJAX + reload, triggering Celery fetch tasks.
-Celery requests prices using yfinance, pushes result via Channels layer.
-WebSocket broadcasts JSON updates to active clients.
-Frontend JS updates the HTML DOM dynamically.
-Color-coded row updates (green/red) indicate real-time movement.
+- User selects stocks via a Django form.
+- Form submits AJAX + reload, triggering Celery fetch tasks.
+- Celery requests prices using yfinance, pushes result via Channels layer.
+- WebSocket broadcasts JSON updates to active clients.
+- Frontend JS updates the HTML DOM dynamically.
+- Color-coded row updates (green/red) indicate real-time movement.
