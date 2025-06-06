@@ -147,6 +147,9 @@ pip install --upgrade websockets
 - yfinance for stock data
 - Redis for real-time messaging
 
-📬 **Contact**
+---
+
+## 📬 **Contact**
+
 Salman Mohammed
 📧 mohd.salman.ms971@gmail.com
