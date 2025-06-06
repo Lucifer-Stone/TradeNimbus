@@ -1,0 +1,5 @@
+Terminal 1: python manage.py runserver
+
+Terminal 2: celery -A tradenimbus.celery worker --pool=solo -l info
+
+Terminal 3: celery -A tradenimbus beat -l INFO
