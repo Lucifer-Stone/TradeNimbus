@@ -83,6 +83,14 @@ Open three separate terminals:
      ```
      celery -A tradenimbus beat --loglevel=info
      ```
+
+🌐 **Accessing the App**
+- Homepage:
+      http://127.0.0.1:8000/ (URL)
+- Select your favourite stocks:
+      Choose from the list of NIFTY50 stocks and submit.
+- Stock Tracker Page:
+      Displays stock data like price, previous close, change (with red/green indicators), and volume.
      
 🕸️ **Redis, Celery & Channels Setup**
 
@@ -115,3 +123,13 @@ pip install --upgrade websockets
 - WebSocket broadcasts JSON updates to active clients.
 - Frontend JS updates the HTML DOM dynamically.
 - Color-coded row updates (green/red) indicate real-time movement.
+
+🧠 **Credits**
+- Django + Channels + Celery for app logic
+- Bootstrap 5 for styling
+- yfinance for stock data
+- Redis for real-time messaging
+
+📬 **Contact**
+Salman Mohammed
+📧 mohd.salman.ms971@gmail.com
