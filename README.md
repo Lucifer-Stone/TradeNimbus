@@ -67,8 +67,11 @@ python -m venv venv
     ```
     python manage.py migrate
     ```
-    
-▶️ Run the App
+
+---
+
+## ▶️ Run the App
+
 Open three separate terminals:
 
   1. Django development server
@@ -84,21 +87,28 @@ Open three separate terminals:
      celery -A tradenimbus beat --loglevel=info
      ```
 
-🌐 **Accessing the App**
+---
+
+## 🌐 **Accessing the App**
+
 - Homepage:
       http://127.0.0.1:8000/ (URL)
 - Select your favourite stocks:
       Choose from the list of NIFTY50 stocks and submit.
 - Stock Tracker Page:
       Displays stock data like price, previous close, change (with red/green indicators), and volume.
-     
-🕸️ **Redis, Celery & Channels Setup**
+
+---
+
+## 🕸️ **Redis, Celery & Channels Setup**
 
 - Redis acts as a broker (Celery) and channel layer (Channels).
 - Celery fetches real-time stock info via yfinance.
 - Django Channels + ASGI push updates over WebSockets to clients.
 
-📝 **Assumptions Made**
+---
+
+## 📝 **Assumptions Made**
 
 - Stock tickers are restricted to NIFTY50, validated via yfinance.
 - No user authentication—session-managed by query string.
@@ -106,7 +116,9 @@ Open three separate terminals:
 - All data is stored in-memory; no persistent database storage for stock prices.
 - Styling uses Bootstrap 5, focusing on responsiveness over design polish.
 
-⚠️ **Notes & Troubleshooting**
+---
+
+## ⚠️ **Notes & Troubleshooting**
 
 If Celery raises SerializerNotInstalled: No encoder/decoder installed for 'a', add to your settings.py:
 
@@ -115,7 +127,9 @@ If yfinance errors with websockets.sync, install or upgrade:
 pip install --upgrade websockets
 ```
 
-🔄 **How It Works (Architecture)**
+---
+
+## 🔄 **How It Works (Architecture)**
 
 - User selects stocks via a Django form.
 - Form submits AJAX + reload, triggering Celery fetch tasks.
@@ -124,7 +138,10 @@ pip install --upgrade websockets
 - Frontend JS updates the HTML DOM dynamically.
 - Color-coded row updates (green/red) indicate real-time movement.
 
-🧠 **Credits**
+---
+
+## 🧠 **Credits**
+
 - Django + Channels + Celery for app logic
 - Bootstrap 5 for styling
 - yfinance for stock data
